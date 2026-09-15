@@ -89,13 +89,22 @@ const Portfolio = () => {
         myWork: "UI/UX Design & Frontend Development"
       },
       {
-        name: "UGM Family – Youth Platform",
-        period: "July 2025",
-        description: "React.js platform for 200+ users to manage events and trips.",
-        tech: ["React.js", "Firebase", "QR System"],
-        features: ["Role-based access", "Wallet system", "Multilingual", "Dashboards"],
-        demoLink: "https://ugm-family.vercel.app/",
+        name: "Sherooq – Enterprise ERP System",
+        period: "2025",
+        description: "Comprehensive Enterprise ERP system featuring Procurement, Inventory & Warehouse management, HR, and Financial modules.",
+        tech: ["React.js", "Tailwind CSS", "REST APIs", "ERP Modules"],
+        features: ["Procurement Module", "Inventory & Warehouses", "HR Management", "Finance & Accounting"],
+        demoLink: "https://sherooq-system.eu/",
         myWork: "UI/UX Design & Frontend Development"
+      },
+      {
+        name: "ArtRewards – Online Art Marketplace",
+        period: "2025 – Present",
+        description: "An international e-commerce platform dedicated to discovering, buying, and selling fine art paintings.",
+        tech: ["React.js", "Tailwind CSS", "E-Commerce", "Payment Gateways"],
+        features: ["Art Gallery & Marketplace", "Artwork Purchasing", "Artist Profiles", "Secure Checkout"],
+        demoLink: "https://www.artrewards.net/",
+        myWork: "Frontend Development & UI/UX"
       },
       {
         name: "Fixy Landing Page",
@@ -113,12 +122,43 @@ const Portfolio = () => {
         description: "Elegant website for Glow brand",
         tech: ["React", "Framer Motion"],
         features: ["Animations", "Modern design"],
-        demoLink: "https://glow-sable.vercel.app",
+        demoLink: "https://glow-2.vercel.app/",
         status: "under-development",
         myWork: "UI/UX Design & Frontend Development"
       }
     ],
     experience: [
+      {
+        role: "Front-End Instructor",
+        company: "Bug Academy",
+        period: "Jun 2026 – Present",
+        responsibilities: [
+          "Delivering advanced front-end web development curricula including modern JavaScript and React",
+          "Mentoring students through real-world projects, practical workshops, and one-on-one code reviews",
+          "Guiding aspiring developers on clean coding practices, modern workflows, and UI engineering"
+        ]
+      },
+      {
+        role: "Front-End Instructor",
+        company: "Code Academy",
+        period: "Feb 2026 – Jun 2026",
+        responsibilities: [
+          "Instructed students in core front-end web development concepts, responsive design, and modern web standards",
+          "Conducted interactive coding sessions, technical challenges, and guided hands-on exercises",
+          "Evaluated student projects, provided in-depth code feedback, and supported their technical growth"
+        ]
+      },
+      {
+        role: "Front-End Developer & UI/UX Designer",
+        company: "Shawahid (Riyadh, Saudi Arabia)",
+        period: "2025 – 2026",
+        responsibilities: [
+          "Engineered front-end interfaces and built responsive UI components for the 'Ouvira' enterprise ERP system",
+          "Designed comprehensive UI/UX flows, interactive prototypes, and wireframes in Figma",
+          "Authored detailed user stories, use cases, and technical requirement specifications",
+          "Collaborated closely with stakeholders to translate complex enterprise workflows into intuitive user experiences"
+        ]
+      },
       {
         role: "Front-End Developer",
         company: "ArtRewards (Oslo, Norway) – Remote",
@@ -535,47 +575,49 @@ const Portfolio = () => {
             </p>
           </motion.div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {portfolioData.experience.map((exp, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7, delay: index * 0.2 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`mb-6 sm:mb-8 p-6 sm:p-8 rounded-2xl transition-all duration-500 ${
+                className={`p-6 sm:p-8 rounded-2xl transition-all duration-500 flex flex-col justify-between hover:scale-[1.02] ${
                   darkMode
                     ? 'bg-gray-800/50 backdrop-blur-md border border-gray-700'
                     : 'bg-white/80 backdrop-blur-md border border-gray-200'
                 }`}
               >
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                  <div className="mb-4 md:mb-0">
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2">{exp.role}</h3>
-                    <p className={`text-lg sm:text-xl ${
-                      darkMode ? 'text-green-400' : 'text-blue-600'
-                    }`}>
-                      {exp.company}
-                    </p>
-                  </div>
-                  <span className={`px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium ${
-                    darkMode ? 'bg-gray-700 text-gray-300' : 'bg-blue-100 text-blue-700'
-                  }`}>
-                    {exp.period}
-                  </span>
-                </div>
-                <ul className="space-y-2 sm:space-y-3">
-                  {exp.responsibilities.map((resp, i) => (
-                    <li key={i} className="flex items-start text-sm sm:text-base">
-                      <span className={`mr-2 sm:mr-3 mt-1.5 ${
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 gap-2">
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold mb-1">{exp.role}</h3>
+                      <p className={`text-base sm:text-lg font-medium ${
                         darkMode ? 'text-green-400' : 'text-blue-600'
-                      }`}>•</span>
-                      <span className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
-                        {resp}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                      }`}>
+                        {exp.company}
+                      </p>
+                    </div>
+                    <span className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap self-start ${
+                      darkMode ? 'bg-gray-700 text-gray-300' : 'bg-blue-100 text-blue-700'
+                    }`}>
+                      {exp.period}
+                    </span>
+                  </div>
+                  <ul className="space-y-2 sm:space-y-3 mt-4">
+                    {exp.responsibilities.map((resp, i) => (
+                      <li key={i} className="flex items-start text-sm sm:text-base">
+                        <span className={`mr-2 sm:mr-3 mt-1.5 ${
+                          darkMode ? 'text-green-400' : 'text-blue-600'
+                        }`}>•</span>
+                        <span className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
+                          {resp}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </motion.div>
             ))}
           </div>
